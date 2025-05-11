@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeClientVpnRoutes",
+                "ec2:CreateClientVpnRoute",
+                "ec2:DisassociateClientVpnTargetNetwork",
+                "ec2:DeleteClientVpnEndpoint",
+                "ec2:ExportClientVpnClientConfiguration",
+                "ec2:ModifyClientVpnEndpoint",
+                "ec2:DescribeClientVpnConnections",
+                "ec2:DescribeClientVpnTargetNetworks",
+                "ec2:RevokeClientVpnIngress",
+                "ec2:AssociateClientVpnTargetNetwork",
+                "ec2:ExportClientVpnClientCertificateRevocationList",
+                "ec2:CreateClientVpnEndpoint",
+                "ec2:AuthorizeClientVpnIngress",
+                "ec2:ImportClientVpnClientCertificateRevocationList",
+                "ec2:TerminateClientVpnConnections",
+                "ec2:DeleteClientVpnRoute",
+                "ec2:DescribeClientVpnAuthorizationRules",
+                "ec2:ApplySecurityGroupsToClientVpnTargetNetwork",
+                "ec2:DescribeClientVpnEndpoints"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
