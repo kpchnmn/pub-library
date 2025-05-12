@@ -1,0 +1,3 @@
+# ALBAutoRuleRestore
+
+ヘルスチェック正常をトリガーにALBにルールを削除するスクリプト

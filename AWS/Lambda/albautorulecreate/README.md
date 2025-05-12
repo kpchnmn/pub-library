@@ -1,0 +1,3 @@
+# ALBAutoRuleCreate
+
+ヘルスチェック失敗をトリガーにALBにルールを作成するスクリプト

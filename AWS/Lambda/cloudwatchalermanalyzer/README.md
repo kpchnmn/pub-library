@@ -1,0 +1,5 @@
+# CloudWatchAlermAnalyzer
+
+SNSメッセージ日本語化スクリプト
+
+主要な閾値監視通知のメッセージの日本語化を行います。

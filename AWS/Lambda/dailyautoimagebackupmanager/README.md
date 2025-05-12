@@ -1,0 +1,5 @@
+# DailyAutoImageBackupManager
+
+AMI世代管理スクリプト
+
+DailyAutoImageBackupタグが設定されたEC2インスタンスのAMI世代管理を行います。
