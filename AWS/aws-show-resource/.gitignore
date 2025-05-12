@@ -1,0 +1,6 @@
+setting.ini
+*.xlsx
+__pycache__
+build
+dist
+app.spec
