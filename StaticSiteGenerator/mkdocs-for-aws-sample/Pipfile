@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+mkdocs = "*"
+mkdocs-material = "==4.6.3"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+build = "bash -c 'cd sample && mkdocs build'"
+test = "pipenv --version"
+mkdocs = "mkdocs --version"

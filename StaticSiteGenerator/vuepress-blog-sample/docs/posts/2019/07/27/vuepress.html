@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePressでブログをはじめる | kapiozblog</title>
+    <meta name="description" content="This is my Engineering blog">
+    <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <link href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+  <meta name="og:url" content="https://kapioz.github.io/blog/">
+  <meta name="og:type" content="website">
+  <meta name="og:title" content="kapiozblog">
+  <meta name="og:description" content="This is my Engineering blog">
+  <meta name="og:image" content="/img/favicon.png">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.29af5f9d.css" as="style"><link rel="preload" href="/blog/assets/js/app.a22a85cc.js" as="script"><link rel="preload" href="/blog/assets/js/6.4b426c58.js" as="script"><link rel="preload" href="/blog/assets/js/8.9aa09f7a.js" as="script"><link rel="prefetch" href="/blog/assets/js/1.4da12bf5.js"><link rel="prefetch" href="/blog/assets/js/10.6df583c8.js"><link rel="prefetch" href="/blog/assets/js/11.aa8836ea.js"><link rel="prefetch" href="/blog/assets/js/12.63261e90.js"><link rel="prefetch" href="/blog/assets/js/13.056284bc.js"><link rel="prefetch" href="/blog/assets/js/14.b076c079.js"><link rel="prefetch" href="/blog/assets/js/15.5f105439.js"><link rel="prefetch" href="/blog/assets/js/3.097a52cf.js"><link rel="prefetch" href="/blog/assets/js/4.7fcb3eee.js"><link rel="prefetch" href="/blog/assets/js/5.de1c0c39.js"><link rel="prefetch" href="/blog/assets/js/7.b6514698.js"><link rel="prefetch" href="/blog/assets/js/9.001fc498.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.29af5f9d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/blog/img/bg.jpg);" data-v-0539f1bd><div data-v-39c72c19 data-v-0539f1bd><nav class="navbar" data-v-39c72c19><div class="container" data-v-39c72c19><a href="/blog/" class="router-link-active" data-v-39c72c19><span class="navbar-site-name" data-v-39c72c19>
+          kapiozblog
+        </span></a> <div class="navbar-toggler" data-v-39c72c19><svg class="icon" style="font-size:1.2em;" data-v-39c72c19 data-v-39c72c19><title data-v-39c72c19 data-v-39c72c19>menu</title><use xlink:href="#icon-menu" data-v-39c72c19 data-v-39c72c19></use></svg></div> <div class="navbar-links" data-v-39c72c19><a href="/blog/" class="navbar-link" data-v-39c72c19>
+            ホーム
+          </a><a href="/blog/posts/" class="navbar-link router-link-active" data-v-39c72c19>
+            記事一覧
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-39c72c19></div></div> <div class="banner" data-v-98d6aa8c data-v-0539f1bd data-v-0539f1bd><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-0539f1bd>
+          VuePressでブログをはじめる
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-5f562f18 data-v-5f562f18><main class="main" data-v-5f562f18><div class="post" data-v-5f562f18 data-v-5f562f18><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      作成日 : 2019-07-27
+    </span> <span class="update-date" data-v-4e23451f>
+      更新日 : 2019-07-29
+    </span></section> <section class="post-links" data-v-4e23451f><!----> <a href="/blog/posts/2019/07/28/vuepress.html" class="post-link" data-v-4e23451f>
+      次の記事 : VuePressでブログをはじめる　その２
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="vuepressでブログをはじめる">VuePressでブログをはじめる</h1> <p>技術的なドキュメントを残すのに適した方法はいくつかあるでしょう。</p> <p>例えば、</p> <ul><li><a href="https://hatenablog.com/" target="_blank" rel="noopener noreferrer">はてなブログ<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://qiita.com/" target="_blank" rel="noopener noreferrer">Qiita<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>静的ジェネレータ（<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">HUGO<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,<a href="https://www.mkdocs.org/" target="_blank" rel="noopener noreferrer">MkDocs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,<a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,etc..）</li></ul> <p>などなど。手段はいろいろとありますが、<a href="https://vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer">VuePress<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>を用いて記録を残すこととしました。</p> <h2 id="vuepressとは">VuePressとは</h2> <blockquote><p>「VuePress」とは、Vue.jsの作者であるEvan You氏が作成した静的サイトジェネレータです。
+わかりやすい特徴としては、Markdownで書かれたファイルをhtmlとして生成することができ、さらにMarkdown内でVueが使用可能になっていたり、Vueを使ったカスタムテーマ開発ができます。
+また、デフォルトで用意されたテーマは技術文書を書くために最適化されたものになっているので、ちょっとしたドキュメント作成が容易に行えます。</p> <p><a href="https://www.nxworld.net/services-resource/hello-vuepress.html" target="_blank" rel="noopener noreferrer">VuePress入門<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p>とのこと。導入方法に沿ってひとまずやってみる。</p> <h3 id="getting-started">Getting Started</h3> <h4 id="導入">導入</h4> <p>まずは作業用のディレクトリを作成します。</p> <pre><code>$ mkdir &lt;ディレクトリ名&gt;
+</code></pre> <p>作成できたら、カレントディレクトリを移動します。</p> <pre><code>$ cd &lt;ディレクトリ名&gt;
+</code></pre> <p>vuepressのインストールには、<code>npm</code>または<code>yarn</code>を使うそうです。</p> <p>npmを用いてvuepressをインストールします。</p> <p>バージョン確認</p> <pre><code>$ npm -v
+6.9.0
+</code></pre> <p><code>package.json</code>の作成（任意）</p> <pre><code># create package.json
+$ npm init -y
+</code></pre> <p>ローカルにVuePressをインストールします。</p> <pre><code>$ npm i -D vuepress
+</code></pre> <p>バージョンを確認してみます。</p> <pre><code>$ vuepress --version
+vuepress/1.0.1 darwin-x64 node-v12.4.0
+</code></pre> <p>試しにトップページのMarkdownファイルを作成してみます。</p> <p><code>src</code>という名のディレクトリを作成し、その中に<code>index.md</code>を作成してみます。</p> <pre><code>$ mkdir src
+$ echo '# Hello VuePress' &gt; src/index.md
+</code></pre> <p>VuePressをローカルインストールしたので、コマンドを実行するために<code>package.json</code>の<code>scripts</code>部分に追記します。</p> <pre><code>{
+    &quot;scripts&quot;: {
+        &quot;dev&quot;: &quot;vuepress dev src&quot;,
+        &quot;build&quot;: &quot;vuepress build src&quot;
+    }
+}
+</code></pre> <h4 id="表示確認">表示確認</h4> <p>試しに表示確認をしてみます。</p> <p>次のコマンドを実行すると、<code>http://localhost:8080/</code>にアクセスすれば表示を確認できるようになります。</p> <pre><code>$ npm run dev
+</code></pre> <p><a href="http://localhost:8080/" target="_blank" rel="noopener noreferrer">http://localhost:8080/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>へアクセスしてみます。</p> <p><img src="/blog/assets/img/2019-07-27.7cab07cf.png" alt="2019-07-27"></p> <p>上の画像のように表示されました。</p> <h4 id="ビルド">ビルド</h4> <p>ビルドコマンドは次を実行します。</p> <pre><code>$ npm run build
+success Generated static files in src/.vuepress/dist.
+</code></pre> <p><code>success Generated static files in src/.vuepress/dist.</code>と表示され、<code>src/.vuepress/dist</code>配下に<code>index.html</code>やらが生成されているのが確認できました。</p> <h3 id="デフォルトのmarkdown拡張やスタイル">デフォルトのMarkdown拡張やスタイル</h3> <h4 id="ヘッダーアンカーと目次生成">ヘッダーアンカーと目次生成</h4> <blockquote><p>様々な用途で使うのであればカスタムして利用することが多くなるとは思いますが、ドキュメントサポート向けに作られたこともあって、デフォルトでも下記のように便利なMarkdown拡張やそれっぽい見た目にしてくれるスタイルがひと通り用意されています。</p></blockquote> <p>とのこと。</p> <blockquote><p>見出し（# 〜 ######）を記述すると自動的にアンカーリンクを設定してくれます。
+また、表示させたい箇所に<code>[[toc]]</code>と記述することで、デフォルトだとページ内の##と###から生成した目次を簡単に追加することができます。</p></blockquote> <p>目次が簡単に作成できるのはいいですね。</p> <h4 id="githubスタイルのテーブル">GitHubスタイルのテーブル</h4> <blockquote><p>|, |, :を組み合わせればテーブル（表）を作成できます。
+見た目はゼブラストライプを採用しているGitHubスタイルのものになります。</p></blockquote> <pre><code>| left col     | center col   | right col    |
+| ------------ |:------------:| ------------:|
+| foo          | bar          | baz          |
+| qux          | quux         | corge        |
+| grault       | garply       | waldo        |
+</code></pre> <table><thead><tr><th>left col</th> <th style="text-align:center;">center col</th> <th style="text-align:right;">right col</th></tr></thead> <tbody><tr><td>foo</td> <td style="text-align:center;">bar</td> <td style="text-align:right;">baz</td></tr> <tr><td>qux</td> <td style="text-align:center;">quux</td> <td style="text-align:right;">corge</td></tr> <tr><td>grault</td> <td style="text-align:center;">garply</td> <td style="text-align:right;">waldo</td></tr></tbody></table> <p>ちゃんと中央寄せ、右寄せができてますね。</p> <h4 id="シンタックスハイライト">シンタックスハイライト</h4> <blockquote><p>コードの前後に```を記述することでコードブロックとして表示させることができ、さらに最初の```記述後に言語を指定することでより見やすい形で表示してくれます。
+また、言語指定後に{行数}を記述することで特定の行をハイライトさせることも可能で、例えば下記は言語がJavaScriptで4行目をハイライト表示させたい場合になります。</p></blockquote> <pre><code>``` js{4}
+    export default {
+        data () {
+            return {
+                msg: 'Highlighted!'
+            }
+        }
+    }
+```
+</code></pre> <div class="language-js line-numbers-mode"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      msg<span class="token punctuation">:</span> <span class="token string">'Highlighted!'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>おぉ。</p> <blockquote><p>ハイライト表示を複数行指定したい場合は、例えば2行目と4行目のように離れているならば,区切りで{2,4}と指定し、2〜4行目までのようにまとめて指定するなら-を用いて{2-4}と記述します。</p></blockquote> <p>とのこと。</p> <h4 id="カスタムコンテナ">カスタムコンテナ</h4> <blockquote><p>ちょっとしたヒントや警告を表示させたいとき用のスタイルとしてカスタムコンテナというものが用意されており、任意の文章を:::で括り、最初の:::記述後に「tip」「warning」「danger」のいずれかを記述することで表示を変えることができます。
+また、デフォルトではタイトルとして「TIP」または「WARNING」が表示されますが、下記サンプルの一番下のようにタイプ指定後に文字列を記述することで任意のタイトルで表示できます。</p></blockquote> <pre><code>::: tip
+This is a tip
+:::
+
+::: warning
+This is a warning
+:::
+
+::: danger
+This is a dangerous warning
+:::
+
+::: tip VuePress
+Vue-powered Static Site Generator
+:::
+</code></pre> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>This is a tip</p></div> <div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>This is a warning</p></div> <div class="danger custom-block"><p class="custom-block-title">DANGER</p> <p>This is a dangerous warning</p></div> <div class="tip custom-block"><p class="custom-block-title">VuePress</p> <p>Vue-powered Static Site Generator</p></div> <blockquote><p>ここで紹介しているのも用意されている中の一部で、他にもmarkdown-itで対応している絵文字が使えたり、リンク指定も内部・外部ともにできます。
+このようにちょっとしたドキュメントを作る際に使えそうな機能や見た目がデフォルトで用意されているので、簡易的なドキュメントであれば環境を用意してMarkdownを少し書くだけで簡単に作成できると思います。</p></blockquote> <p>とのこと。<a href="https://v0.vuepress.vuejs.org/guide/markdown.html" target="_blank" rel="noopener noreferrer">Markdown Extensions | VuePress<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>入門に沿ってだいたいイメージは理解できた。GitBook,Mkdocsよりかはカスタマイズしやすい印象。</p> <p><a href="https://www.nxworld.net/tips/vuepress-markdown-customize.html" target="_blank" rel="noopener noreferrer">VuePress：Markdownを設定変更やプラグイン追加によってカスタマイズする方法<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="本題：ブログ用にカスタマイズする">本題：ブログ用にカスタマイズする</h2> <p>ようやく本題。</p> <p>デフォルトのVuePressのテーマが見やすかったので<a href="https://qiita.com/youdie/items/88df59a3ebaf47e3d992" target="_blank" rel="noopener noreferrer">VuePress 1.xでブログを作ってみる<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> に習ってやってみたのだけれども、Vue.jsについて大した知識がないので、うまくいかなかった。</p> <p>開発が盛んということで、プラグインの変更も多々あって修正が増えたら面倒だなと思ったので、とりあえずはてっとり早く開設するために、綺麗なテーマを使うことにした。</p> <p><a href="https://vuepress-theme-meteorlxy.meteorlxy.cn/posts/2019/02/27/theme-guide-en.html" target="_blank" rel="noopener noreferrer">vuepress-theme-meteorlxy<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://taku-ando.github.io/posts/vuepress/20180709_vuepress_theme.html" target="_blank" rel="noopener noreferrer">VuePressにテーマを適用させる<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h3 id="テーマのインストール">テーマのインストール</h3> <ol><li><p>適当なフォルダを作る</p></li> <li><p>vuepressをインストールする。</p></li> <li><p>vuepress-theme-meteorlxyをインストールする。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ npm install -D vuepress-theme-meteorlxy
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><code>node_modules/vuepress-theme-meteorlxy</code>にインストールされた。</p></li></ol> <h3 id="カスタマイズ">カスタマイズ</h3> <blockquote><p>Create <code>src/_posts</code> directory and the config file of Vuepress. The structure of your project looks like:</p></blockquote> <p><code>src/_posts</code>配下に記事用のMarkdownファイルを置いてねとのこと。</p> <blockquote><p>Notice that <code>src/index.md</code> or <code>src/README.md</code> is not necessray. This theme will auto add homepage for you.</p></blockquote> <p>お？index.mdとか無くても動くって？</p> <p><code>.vuepress/config.js</code>をひとまずまるっとコピペして実行したら、できました〜。</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code>module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">// Title of your website</span>
+  title<span class="token operator">:</span> 'My Blog'<span class="token punctuation">,</span>
+
+  <span class="token comment">// Description of your website</span>
+  description<span class="token operator">:</span> 'This is my blog'<span class="token punctuation">,</span>
+
+  <span class="token comment">// Language of your website</span>
+  locales<span class="token operator">:</span> <span class="token punctuation">{</span>
+    '/'<span class="token operator">:</span> <span class="token punctuation">{</span>
+      lang<span class="token operator">:</span> 'en-US'<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Theme to use</span>
+  theme<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+
+  <span class="token comment">// Theme config</span>
+  themeConfig<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Language of this theme. See the [Theme Language] section below.</span>
+    lang<span class="token operator">:</span> 'en-US'<span class="token punctuation">,</span>
+
+    <span class="token comment">// Personal infomation (delete the fields if you don't have / don't want to display)</span>
+    personalInfo<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Nickname</span>
+      nickname<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+
+      <span class="token comment">// Introduction of yourself</span>
+      description<span class="token operator">:</span> 'Happy Coding&lt;br/&gt;Happy Life'<span class="token punctuation">,</span>
+
+      <span class="token comment">// Email</span>
+      email<span class="token operator">:</span> 'meteor.lxy@foxmail.com'<span class="token punctuation">,</span>
+
+      <span class="token comment">// Your location</span>
+      location<span class="token operator">:</span> 'Xi\'an City<span class="token punctuation">,</span> China'<span class="token punctuation">,</span>
+
+      <span class="token comment">// Your organization</span>
+      organization<span class="token operator">:</span> 'Xi\'an Jiao Tong University'<span class="token punctuation">,</span>
+
+      <span class="token comment">// Your avatar image</span>
+      <span class="token comment">// Set to external link</span>
+      avatar<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.meteorlxy.cn/assets/img/avatar.jpg',</span>
+      <span class="token comment">// Or put into `.vuepress/public` directory. E.g. `.vuepress/public/img/avatar.jpg`</span>
+      <span class="token comment">// avatar: '/img/avatar.jpg',</span>
+
+      <span class="token comment">// Accounts of SNS</span>
+      sns<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Github account and link</span>
+        github<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//github.com/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Facebook account and link</span>
+        facebook<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy.cn'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.facebook.com/meteorlxy.cn',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// LinkedIn account and link</span>
+        linkedin<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'http<span class="token operator">:</span><span class="token comment">//www.linkedin.com/in/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Twitter account and link</span>
+        twitter<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy_cn'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//twitter.com/meteorlxy_cn',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Sina Weibo account and link</span>
+        weibo<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> '@焦炭君_Meteor'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//weibo.com/u/2039655434',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Zhihu account and link</span>
+        zhihu<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy.cn'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.zhihu.com/people/meteorlxy.cn',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Douban account and link</span>
+        douban<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> '<span class="token number">159342708</span>'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.douban.com/people/159342708',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Reddit account and link</span>
+        reddit<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.reddit.com/user/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Medium account and link</span>
+        medium<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy.cn'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//medium.com/@meteorlxy.cn',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Instagram account and link</span>
+        instagram<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy.cn'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//www.instagram.com/meteorlxy.cn',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// GitLab account and link</span>
+        gitlab<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//gitlab.com/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Bitbucket account and link</span>
+        bitbucket<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//bitbucket.org/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Docker Hub account and link</span>
+        docker<span class="token operator">:</span> <span class="token punctuation">{</span>
+          account<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+          link<span class="token operator">:</span> 'https<span class="token operator">:</span><span class="token comment">//hub.docker.com/u/meteorlxy',</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Header Config</span>
+    header<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// The background of the header. You can choose to use an image, or to use random pattern (geopattern)</span>
+      background<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// URL of the background image. If you set the URL, the random pattern will not be generated, and the `useGeo` will be ignored.</span>
+        url<span class="token operator">:</span> '/assets/img/bg.jpg'<span class="token punctuation">,</span>
+
+        <span class="token comment">// Use random pattern. If you set it to `false`, and you don't set the image URL, the background will be blank.</span>
+        useGeo<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// show title in the header or not</span>
+      showTitle<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Show the last updated time of your posts</span>
+    lastUpdated<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// The content of your navbar links</span>
+    nav<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> text<span class="token operator">:</span> 'Home'<span class="token punctuation">,</span> link<span class="token operator">:</span> '/'<span class="token punctuation">,</span> exact<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> text<span class="token operator">:</span> 'Posts'<span class="token punctuation">,</span> link<span class="token operator">:</span> '/posts/'<span class="token punctuation">,</span> exact<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Comments config. See the [Posts Comments] section below.</span>
+    comments<span class="token operator">:</span> <span class="token punctuation">{</span>
+      owner<span class="token operator">:</span> 'meteorlxy'<span class="token punctuation">,</span>
+      repo<span class="token operator">:</span> 'vuepress-theme-meteorlxy'<span class="token punctuation">,</span>
+      clientId<span class="token operator">:</span> 'MY_CLIENT_ID'<span class="token punctuation">,</span>
+      clientSecret<span class="token operator">:</span> 'MY_CLIENT_SECRET'<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Pagination config</span>
+    pagination<span class="token operator">:</span> <span class="token punctuation">{</span>
+      perPage<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Default Pages (Optional, the default value of all pages is `true`)</span>
+    defaultPages<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Allow theme to add Home page (url: /)</span>
+      home<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// Allow theme to add Posts page (url: /posts/)</span>
+      posts<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br></div></div><h3 id="日本語化">日本語化</h3> <p>config.jsをいじって日本語対応させていく。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>nav<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'ホーム'</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span> exact<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'記事一覧'</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/posts/'</span><span class="token punctuation">,</span> exact<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code>locales<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'/'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      lang<span class="token punctuation">:</span> <span class="token string">'ja-JP'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code>themeConfig<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Language of this theme. See the [Theme Language] section below.</span>
+    lang<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      home<span class="token punctuation">:</span> <span class="token string">'ホーム'</span><span class="token punctuation">,</span>
+      posts<span class="token punctuation">:</span> <span class="token string">'記事一覧'</span><span class="token punctuation">,</span>
+      category<span class="token punctuation">:</span> <span class="token string">'カテゴリー'</span><span class="token punctuation">,</span>
+      categories<span class="token punctuation">:</span> <span class="token string">'カテゴリー一覧'</span><span class="token punctuation">,</span>
+      allCategories<span class="token punctuation">:</span> <span class="token string">'すべて'</span><span class="token punctuation">,</span>
+      tag<span class="token punctuation">:</span> <span class="token string">'タグ'</span><span class="token punctuation">,</span>
+      tags<span class="token punctuation">:</span> <span class="token string">'タグ一覧'</span><span class="token punctuation">,</span>
+      createdAt<span class="token punctuation">:</span> <span class="token string">'作成日'</span><span class="token punctuation">,</span>
+      updatedAt<span class="token punctuation">:</span> <span class="token string">'更新日'</span><span class="token punctuation">,</span>
+      prevPost<span class="token punctuation">:</span> <span class="token string">'前の記事'</span><span class="token punctuation">,</span>
+      nextPost<span class="token punctuation">:</span> <span class="token string">'次の記事'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="個人情報の変更">個人情報の変更</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>  <span class="token comment">// Personal infomation (delete the fields if you don't have / don't want to display)</span>
+    personalInfo<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Nickname</span>
+      nickname<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Introduction of yourself</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Engineering Blog'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your location</span>
+      location<span class="token punctuation">:</span> <span class="token string">'Saitama,Tokyo'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your organization</span>
+      organization<span class="token punctuation">:</span> <span class="token string">'Japanese Engineer'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your avatar image</span>
+      <span class="token comment">// Set to external link</span>
+      avatar<span class="token punctuation">:</span> <span class="token string">'/img/avatar.jpg'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Or put into `.vuepress/public` directory. E.g. `.vuepress/public/img/avatar.jpg`</span>
+      <span class="token comment">// avatar: '/img/avatar.jpg',</span>
+
+      <span class="token comment">// Accounts of SNS</span>
+      sns<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Github account and link</span>
+        github<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://github.com/kapioz'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// Twitter account and link</span>
+        twitter<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'@kapioz2'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://twitter.com/kapioz2'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// Bitbucket account and link</span>
+        bitbucket<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://bitbucket.org/kapioz'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="config-js変更後まとめ">config.js変更後まとめ</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Title of your website</span>
+  title<span class="token punctuation">:</span> <span class="token string">&quot;kapiozblog&quot;</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Description of your website</span>
+  description<span class="token punctuation">:</span> <span class="token string">'This is my Engineering blog'</span><span class="token punctuation">,</span>
+
+  head<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'link'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> rel<span class="token punctuation">:</span> <span class="token string">'icon'</span><span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">'image/png'</span><span class="token punctuation">,</span> href<span class="token punctuation">:</span> <span class="token string">'/img/favicon.png'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'meta'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'og:url'</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token string">'https://example.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'meta'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'og:type'</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token string">'website'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'meta'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'og:title'</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token string">'kapiozblog'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'meta'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'og:description'</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token string">'This is my Engineering blog'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'meta'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'og:image'</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token string">'/img/favicon.png'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Language of your website</span>
+  locales<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'/'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      lang<span class="token punctuation">:</span> <span class="token string">'ja'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Theme to use</span>
+  theme<span class="token punctuation">:</span> <span class="token string">'meteorlxy'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Theme config</span>
+  themeConfig<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Language of this theme. See the [Theme Language] section below.</span>
+    lang<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      home<span class="token punctuation">:</span> <span class="token string">'ホーム'</span><span class="token punctuation">,</span>
+      posts<span class="token punctuation">:</span> <span class="token string">'記事一覧'</span><span class="token punctuation">,</span>
+      category<span class="token punctuation">:</span> <span class="token string">'カテゴリ'</span><span class="token punctuation">,</span>
+      categories<span class="token punctuation">:</span> <span class="token string">'カテゴリ一覧'</span><span class="token punctuation">,</span>
+      allCategories<span class="token punctuation">:</span> <span class="token string">'すべて'</span><span class="token punctuation">,</span>
+      tag<span class="token punctuation">:</span> <span class="token string">'タグ'</span><span class="token punctuation">,</span>
+      tags<span class="token punctuation">:</span> <span class="token string">'タグ一覧'</span><span class="token punctuation">,</span>
+      createdAt<span class="token punctuation">:</span> <span class="token string">'作成日'</span><span class="token punctuation">,</span>
+      updatedAt<span class="token punctuation">:</span> <span class="token string">'更新日'</span><span class="token punctuation">,</span>
+      prevPost<span class="token punctuation">:</span> <span class="token string">'前の記事'</span><span class="token punctuation">,</span>
+      nextPost<span class="token punctuation">:</span> <span class="token string">'次の記事'</span><span class="token punctuation">,</span>
+      toc<span class="token punctuation">:</span> <span class="token string">'目次'</span><span class="token punctuation">,</span>
+      searchHint<span class="token punctuation">:</span> <span class="token string">'タイトルから検索'</span><span class="token punctuation">,</span>
+      noRelatedPosts<span class="token punctuation">:</span> <span class="token string">'関連する投稿はありません'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Personal infomation (delete the fields if you don't have / don't want to display)</span>
+    personalInfo<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Nickname</span>
+      nickname<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Introduction of yourself</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Engineering blog'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your location</span>
+      location<span class="token punctuation">:</span> <span class="token string">'Saitama,Tokyo'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your organization</span>
+      organization<span class="token punctuation">:</span> <span class="token string">'https://qiita.com/kapioz'</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// Your avatar image</span>
+      <span class="token comment">// Set to external link</span>
+      avatar<span class="token punctuation">:</span> <span class="token string">'/img/avatar.jpg'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Or put into `.vuepress/public` directory. E.g. `.vuepress/public/img/avatar.jpg`</span>
+      <span class="token comment">// avatar: '/img/avatar.jpg',</span>
+
+      <span class="token comment">// Accounts of SNS</span>
+      sns<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Github account and link</span>
+        github<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://github.com/kapioz'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// Twitter account and link</span>
+        twitter<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'@kapioz2'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://twitter.com/kapioz2'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment">// Bitbucket account and link</span>
+        bitbucket<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          account<span class="token punctuation">:</span> <span class="token string">'kapioz'</span><span class="token punctuation">,</span>
+          link<span class="token punctuation">:</span> <span class="token string">'https://bitbucket.org/kapioz'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Header Config</span>
+    header<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// The background of the header. You can choose to use an image, or to use random pattern (geopattern)</span>
+      background<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// URL of the background image. If you set the URL, the random pattern will not be generated, and the `useGeo` will be ignored.</span>
+        url<span class="token punctuation">:</span> <span class="token string">'/img/bg.jpg'</span><span class="token punctuation">,</span>
+
+        <span class="token comment">// Use random pattern. If you set it to `false`, and you don't set the image URL, the background will be blank.</span>
+        useGeo<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+      <span class="token comment">// show title in the header or not</span>
+      showTitle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Show the last updated time of your posts</span>
+    lastUpdated<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// The content of your navbar links</span>
+    nav<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'ホーム'</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span> exact<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'記事一覧'</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/posts/'</span><span class="token punctuation">,</span> exact<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Comments config. See the [Posts Comments] section below.</span>
+    comments<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Pagination config</span>
+    pagination<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      perPage<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Default Pages (Optional, the default value of all pages is `true`)</span>
+    defaultPages<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Allow theme to add Home page (url: /)</span>
+      home<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// Allow theme to add Posts page (url: /posts/)</span>
+      posts<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  markdown<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    lineNumbers<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    anchor<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      permalink<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br></div></div><p>ひとまず、ここまでで一旦一区切り。</p> <p>フォントやら細かい調整を次回以降でやっていく。</p></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      作成日 : 2019-07-27
+    </span> <span class="update-date" data-v-4e23451f>
+      更新日 : 2019-07-29
+    </span></section> <section class="post-links" data-v-4e23451f><!----> <a href="/blog/posts/2019/07/28/vuepress.html" class="post-link" data-v-4e23451f>
+      次の記事 : VuePressでブログをはじめる　その２
+    </a></section></section> <!----></div></main> <aside class="aside" data-v-5f562f18><div class="info-card main-div" data-v-03c72fc4 data-v-5f562f18><div class="info-card-header" data-v-03c72fc4><img src="/blog/img/avatar.jpg" alt="kapioz" class="info-avatar" data-v-03c72fc4></div> <div class="info-card-body" data-v-03c72fc4><section class="info-nickname" data-v-03c72fc4>
+      kapioz
+    </section> <section class="info-desc" data-v-03c72fc4>Engineering blog</section> <section class="info-contact" data-v-03c72fc4><section data-v-03c72fc4><span title="Saitama,Tokyo" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>Saitama,Tokyo</title><use xlink:href="#icon-location" data-v-03c72fc4 data-v-03c72fc4></use></svg><span class="info-text" data-v-03c72fc4 data-v-03c72fc4>
+          Saitama,Tokyo
+        </span></span></section> <section data-v-03c72fc4><span title="https://qiita.com/kapioz" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>https://qiita.com/kapioz</title><use xlink:href="#icon-organization" data-v-03c72fc4 data-v-03c72fc4></use></svg><span class="info-text" data-v-03c72fc4 data-v-03c72fc4>
+          https://qiita.com/kapioz
+        </span></span></section> <!----></section></div> <div class="info-card-footer" data-v-03c72fc4><section class="info-sns clearfix" data-v-03c72fc4><a href="https://github.com/kapioz" target="_blank" class="sns-link" data-v-03c72fc4><span title="GitHub: kapioz" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>GitHub: kapioz</title><use xlink:href="#icon-github" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a><a href="https://twitter.com/kapioz_" target="_blank" class="sns-link" data-v-03c72fc4><span title="Twitter: @kapioz_" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>Twitter: @kapioz_</title><use xlink:href="#icon-twitter" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a><a href="https://bitbucket.org/kapioz" target="_blank" class="sns-link" data-v-03c72fc4><span title="Bitbucket: kapioz" class="sns-icon" data-v-03c72fc4 data-v-03c72fc4><svg class="icon" style="font-size:1.5em;" data-v-03c72fc4 data-v-03c72fc4><title data-v-03c72fc4 data-v-03c72fc4>Bitbucket: kapioz</title><use xlink:href="#icon-bitbucket" data-v-03c72fc4 data-v-03c72fc4></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-5f562f18><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>目次</span> <div class="post-nav-toc"><ul><li><a href="/blog/posts/2019/07/27/vuepress.html#vuepressとは">VuePressとは</a><ul><li><a href="/blog/posts/2019/07/27/vuepress.html#getting-started">Getting Started</a></li><li><a href="/blog/posts/2019/07/27/vuepress.html#デフォルトのmarkdown拡張やスタイル">デフォルトのMarkdown拡張やスタイル</a></li></ul></li><li><a href="/blog/posts/2019/07/27/vuepress.html#本題：ブログ用にカスタマイズする">本題：ブログ用にカスタマイズする</a><ul><li><a href="/blog/posts/2019/07/27/vuepress.html#テーマのインストール">テーマのインストール</a></li><li><a href="/blog/posts/2019/07/27/vuepress.html#カスタマイズ">カスタマイズ</a></li><li><a href="/blog/posts/2019/07/27/vuepress.html#日本語化">日本語化</a></li><li><a href="/blog/posts/2019/07/27/vuepress.html#個人情報の変更">個人情報の変更</a></li></ul></li></ul></div></div> <!----></div></aside></div> <footer class="footer" data-v-1114308c><p class="sns-links" data-v-1114308c><a href="https://github.com/kapioz" target="_blank" class="sns-link" data-v-1114308c><span title="GitHub: kapioz" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>GitHub: kapioz</title><use xlink:href="#icon-github" data-v-1114308c data-v-1114308c></use></svg></span></a><a href="https://twitter.com/kapioz_" target="_blank" class="sns-link" data-v-1114308c><span title="Twitter: @kapioz_" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>Twitter: @kapioz_</title><use xlink:href="#icon-twitter" data-v-1114308c data-v-1114308c></use></svg></span></a><a href="https://bitbucket.org/kapioz" target="_blank" class="sns-link" data-v-1114308c><span title="Bitbucket: kapioz" class="sns-icon" data-v-1114308c data-v-1114308c><svg class="icon" style="font-size:25px;" data-v-1114308c data-v-1114308c><title data-v-1114308c data-v-1114308c>Bitbucket: kapioz</title><use xlink:href="#icon-bitbucket" data-v-1114308c data-v-1114308c></use></svg></span></a></p> <p data-v-1114308c><span data-v-1114308c>Powered by </span> <a href="https://vuepress.vuejs.org" target="_blank" data-v-1114308c>
+      Vuepress
+    </a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/blog/assets/js/app.a22a85cc.js" defer></script><script src="/blog/assets/js/6.4b426c58.js" defer></script><script src="/blog/assets/js/8.9aa09f7a.js" defer></script>
+  </body>
+</html>

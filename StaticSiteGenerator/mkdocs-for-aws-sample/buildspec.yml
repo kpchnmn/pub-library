@@ -1,0 +1,26 @@
+version: 0.2
+
+#env:
+
+
+phases:
+  install:
+    commands:
+        - python --version
+        - python -m pip --version
+        - python -m pip install pipenv
+        - pipenv --version
+        - ls
+        - pipenv sync
+ # pre_build:
+ #   commands:
+  build:
+    commands:
+        - echo $s3-bucket-name
+        - pipenv run build
+        - ls
+        - cd sample
+        - ls
+        - pipenv run mkdocs
+ # post_build:
+ #   commands:
