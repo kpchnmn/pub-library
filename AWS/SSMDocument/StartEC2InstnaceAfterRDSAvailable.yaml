@@ -1,0 +1,27 @@
+description: StopRdsInstance
+schemaVersion: '0.3'
+assumeRole: "{{AutomationAssumeRole}}"
+parameters:
+  InstanceIds:
+    type: StringList
+  DBInstanceId:
+    type: String
+  AutomationAssumeRole:
+    type: String
+mainSteps:
+  - name: CheckStatus
+    action: 'aws:waitForAwsResourceProperty'
+    inputs:
+      Service: rds
+      Api: DescribeDBInstances
+      PropertySelector: '$.DBInstances[0].DBInstanceStatus'
+      DesiredValues:
+        - available
+      DBInstanceIdentifier: '{{DBInstanceId}}'
+  - name: executeStartEC2Docs
+    action: 'aws:executeAutomation'
+    inputs:
+      DocumentName: AWS-StartEC2Instance
+      DocumentVersion: $DEFAULT
+      RuntimeParameters:
+        InstanceId: '{{InstanceIds}}'

@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create SSM Document templte
+Resources:
+  SampleDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Content:
+        description: StopRdsInstance
+        schemaVersion: '0.3'
+        assumeRole: "{{AutomationAssumeRole}}"
+        parameters:
+          InstanceIds:
+            type: StringList
+          DBInstanceId:
+            type: String
+          AutomationAssumeRole:
+            type: String
+        mainSteps:
+          - name: executeStartRDSDocs
+            action: 'aws:executeAutomation'
+            inputs:
+              DocumentName: AWS-StartRdsInstance
+              DocumentVersion: $DEFAULT
+              RuntimeParameters:
+                InstanceId: '{{DBInstanceId}}'
+          - name: executeStartEC2Docs
+            action: 'aws:executeAutomation'
+            inputs:
+              DocumentName: AWS-StartEC2Instance
+              DocumentVersion: $DEFAULT
+              RuntimeParameters:
+                InstanceId: '{{InstanceIds}}'
+      DocumentType: Automation
+      Name: StartEC2InstnaceAfterRDSAvailable
