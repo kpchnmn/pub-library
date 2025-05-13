@@ -1,0 +1,129 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: EC2 template
+Parameters:
+
+  ImageId:
+    Type: "String"
+  InstanceType:
+    Type: "String"
+  KeyPairName:
+    MinLength: 1
+    Type: "AWS::EC2::KeyPair::KeyName"
+  SubnetID:
+    Type: "AWS::EC2::Subnet::Id"
+  Volumsize:
+    Type: "Number"
+
+  EnvironmentName:
+    Type: String
+
+  IamInstanceProfileName:
+    Default: "base-ec2-ap-northeast-1"
+    Type: "String"
+
+  SecurityGroupId:
+    Type: "AWS::EC2::SecurityGroup::Id"
+
+  DBRootPassword:
+    Type: "String"
+
+  WordPressUserDBPassword:
+    Type: "String"
+
+Resources:
+  LinuxEC2Instance:
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Delete"
+    Properties:
+      BlockDeviceMappings:
+        - DeviceName: "/dev/xvda"
+          Ebs:
+            DeleteOnTermination: true
+            Encrypted: false
+            VolumeSize:
+              Ref: Volumsize
+            VolumeType: "gp2"
+      DisableApiTermination: false
+      EbsOptimized: false
+      IamInstanceProfile:
+        Ref: "IamInstanceProfileName"
+      ImageId: !Ref ImageId
+      InstanceInitiatedShutdownBehavior: "stop"
+      InstanceType:
+        Ref: "InstanceType"
+      Monitoring: false
+      KeyName:
+        Ref: "KeyPairName"
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: false
+          DeleteOnTermination: true
+          DeviceIndex: 0
+          GroupSet:
+            - Ref: SecurityGroupId
+          SubnetId: !Ref SubnetID
+      SourceDestCheck: true
+      Tags:
+        - Key: "Name"
+          Value: !Sub  ${EnvironmentName}-ec2
+      Tenancy: "default"
+      UserData:
+        Fn::Base64: !Sub
+          - |
+            #!/bin/bash
+            yum update -y
+            # Install Apache
+            yum install httpd -y
+            systemctl start httpd
+            systemctl enable httpd
+            # Install MySQL Server
+            yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+            yum install -y mysql-community-server
+            systemctl start mysqld
+            systemctl enable mysqld
+            # Prepair mysql_secure_installation
+            yum install -y expect
+            expect -c '
+              set timeout 10;
+              spawn mysql_secure_installation;
+              expect "Enter password for user root:";
+              send "'"$(grep "A temporary password is generated for root@localhost:" /var/log/mysqld.log | awk '{ print $13}')"'\n";
+              expect "New password:";
+              send "${DBRootPassword}\n";
+              expect "Re-enter new password:";
+              send "${DBRootPassword}\n";
+              expect "Change the password for root ?";
+              send "n\n";
+              expect "Remove anonymous users?";
+              send "y\n";
+              expect "Disallow root login remotely?";
+              send "y\n";
+              expect "Remove test database and access to it?";
+              send "y\n";
+              expect "Reload privilege tables now?";
+              send "y\n";
+              interact;'
+            # Install Wordpress
+            amazon-linux-extras install -y php7.4
+            cd /home/ec2-user
+            wget https://wordpress.org/latest.tar.gz
+            tar -xzf latest.tar.gz
+            mysql -u root -p${DBRootPassword} -e "CREATE USER wordpress@localhost IDENTIFIED BY '${WordPressUserDBPassword}';"
+            mysql -u root -p${DBRootPassword} -e "CREATE DATABASE \`wordpress-db\`;"
+            mysql -u root -p${DBRootPassword} wordpress-db -e "GRANT ALL PRIVILEGES ON \`wordpress-db\`.* TO wordpress@localhost;"
+            mysql -u root -p${DBRootPassword} -e "FLUSH PRIVILEGES;"
+            cp wordpress/wp-config-sample.php wordpress/wp-config.php
+            sed -i -e 's/database_name_here/wordpress-db/g' wordpress/wp-config.php
+            sed -i -e 's/username_here/wordpress/g' wordpress/wp-config.php
+            sed -i -e 's/password_here/${WordPressUserDBPassword}/g' wordpress/wp-config.php
+            cp -r wordpress/* /var/www/html/
+            chown -R apache:apache /var/www/html/
+            chown -R ec2-user:ec2-user latest.tar.gz
+            chown -R ec2-user:ec2-user wordpress
+            systemctl restart httpd
+            /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebAppInstance --region ${AWS::Region}
+            cd /tmp
+            sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+            sudo systemctl enable amazon-ssm-agent
+            sudo systemctl start amazon-ssm-agent
+          - DBRootPassword: !Ref DBRootPassword
+            WordPressUserDBPassword: !Ref WordPressUserDBPassword

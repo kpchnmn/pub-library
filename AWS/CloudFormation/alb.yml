@@ -1,0 +1,96 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "alb template"
+Parameters:
+  CertificateArn:
+    Description: "input CertificateArn"
+    Type: "String"
+
+  SecurityGroupID:
+    Type: "AWS::EC2::SecurityGroup::Id"
+
+  SubnetList:
+    Type: "List<AWS::EC2::Subnet::Id>"
+
+  InstanceID1:
+    Type: "AWS::EC2::Instance::Id"
+  InstanceID2:
+    Type: "AWS::EC2::Instance::Id"
+  InstanceID3:
+    Type: "AWS::EC2::Instance::Id"
+
+Resources:
+
+# ターゲットグループ
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub ${EnvironmentName}-tg
+      VpcId: !ImportValue VPC
+      HealthCheckIntervalSeconds: 30
+      HealthCheckPath: '/'
+      HealthCheckPort: '80'
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 5
+      UnhealthyThresholdCount: 2
+      Matcher:
+        HttpCode: '200'
+      # Routing
+      Port: '80'
+      Protocol: HTTP
+      Tags:
+        - Key: Name
+          Value: !Sub ${EnvironmentName}-tg
+      TargetType: 'instance'
+      TargetGroupAttributes:
+        - Key: 'deregistration_delay.timeout_seconds' ## ターゲットの登録解除までの待機時間 (秒)
+          Value: 300
+        - Key: 'stickiness.enabled' ## スティッキーセッションの有効無効
+          Value: false
+      Targets:
+         - Id: !Ref InstanceID1
+         - Id: !Ref InstanceID2
+         - Id: !Ref InstanceID3
+
+# ALB
+  ALB:
+    Condition: LoadBalancerCreate
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Type: 'application'
+      Name: !Sub ${EnvironmentName}-alb
+      SecurityGroups:
+        - !Ref SecurityGroupID
+      IpAddressType: 'ipv4'
+      Scheme: 'internet-facing'
+      Subnets:
+        !Split [",",!Ref SubnetList]
+      LoadBalancerAttributes:
+          - Key: idle_timeout.timeout_seconds
+            Value: 60
+      Tags:
+        - Key: Name
+          Value: !Sub ${EnvironmentName}-alb
+
+  ## リスナー
+  HTTPListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - Type: 'forward'
+          TargetGroupArn: !Ref TargetGroup
+      LoadBalancerArn: !Ref ALB
+      Port: '80'
+      Protocol: 'HTTP'
+  HTTPSListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      Certificates:
+        - CertificateArn: !Ref CertificateArn
+      DefaultActions:
+        - Type: 'forward'
+          TargetGroupArn: !Ref TargetGroup
+      LoadBalancerArn: !Ref ALB
+      Port: '443'
+      Protocol: 'HTTPS'
+      SslPolicy: 'ELBSecurityPolicy-TLS-1-2-Ext-2018-06'

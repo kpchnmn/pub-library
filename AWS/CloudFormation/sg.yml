@@ -1,0 +1,129 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: EC2 template
+Parameters:
+
+  EnvironmentName:
+    Type: String
+
+  ParameterFamilyVersion:
+    Type: String
+Resources:
+
+# ALB用
+  ALBsg:
+    Type: "AWS::EC2::SecurityGroup"
+    DeletionPolicy: "Delete"
+    Properties:
+      GroupDescription: !Sub for ${EnvironmentName}-alb
+      GroupName: !Sub ${EnvironmentName}-alb
+      Tags:
+        - Key: "Name"
+          Value: !Sub ${EnvironmentName}-alb
+
+      VpcId: !ImportValue VPC
+
+  ALBsgIngress0:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    DeletionPolicy: "Delete"
+    Properties:
+      CidrIp: "0.0.0.0/0"
+      Description: "from ALL"
+      FromPort: "80"
+      GroupId: !Ref ALBsg
+      IpProtocol: "tcp"
+      ToPort: "80"
+  ALBsgIngress1:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    DeletionPolicy: "Delete"
+    Properties:
+      CidrIp: "0.0.0.0/0"
+      Description: "from ALL"
+      FromPort: "443"
+      GroupId: !Ref ALBsg
+      IpProtocol: "tcp"
+      ToPort: "443"
+  ALBsgEgress0:
+    Type: "AWS::EC2::SecurityGroupEgress"
+    DeletionPolicy: "Delete"
+    Properties:
+      CidrIp: "0.0.0.0/0"
+      Description: "no limit access to anywhere"
+      FromPort: "0"
+      GroupId: !Ref ALBsg
+      IpProtocol: "-1"
+      ToPort: "65535"
+
+# EC2用
+
+  ec2sg:
+    Type: "AWS::EC2::SecurityGroup"
+    DeletionPolicy: "Delete"
+    Properties:
+      GroupDescription: "for ec2"
+      GroupName: !Sub ${EnvironmentName}-ec2
+      Tags:
+        - Key: "Name"
+          Value: !Sub ${EnvironmentName}-ec2
+      VpcId: !ImportValue VPC
+  ec2sgIngress0:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    DeletionPolicy: "Delete"
+    Properties:
+      Description: "from "
+      FromPort: "80"
+      GroupId: !Ref ec2sg
+      IpProtocol: "tcp"
+      SourceSecurityGroupId: !Ref ALBsg
+      ToPort: "80"
+  ec2sgEgress0:
+    Type: "AWS::EC2::SecurityGroupEgress"
+    DeletionPolicy: "Delete"
+    Properties:
+      CidrIp: "0.0.0.0/0"
+      Description: "no limit access to anywhere"
+      FromPort: "0"
+      GroupId: !Ref ec2sg
+      IpProtocol: "-1"
+      ToPort: "65535"
+
+# RDS用
+
+  rdssg:
+      Type: "AWS::EC2::SecurityGroup"
+      DeletionPolicy: "Delete"
+      Properties:
+        GroupDescription: !Sub for ${EnvironmentName}-rds
+        GroupName: !Sub ${EnvironmentName}-rds
+        Tags:
+          - Key: "Name"
+            Value: !Sub ${EnvironmentName}-rds
+        VpcId: !ImportValue VPC
+  rdssgIngress0:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    DeletionPolicy: "Delete"
+    Properties:
+      Description: "from ec2"
+      FromPort: "3306"
+      GroupId: !Ref rdssg
+      IpProtocol: "tcp"
+      SourceSecurityGroupId: !Ref ec2sg
+      ToPort: "3306"
+  rdssgEgress0:
+    Type: "AWS::EC2::SecurityGroupEgress"
+    DeletionPolicy: "Delete"
+    Properties:
+      CidrIp: "0.0.0.0/0"
+      Description: "no limit access to anywhere"
+      FromPort: "0"
+      GroupId: !Ref rdssg
+      IpProtocol: "-1"
+      ToPort: "65535"
+  param:
+    Type: "AWS::RDS::DBParameterGroup"
+    DeletionPolicy: Delete
+    Properties:
+      Description: !Sub for ${EnvironmentName}-rds
+      Family: !Ref ParameterFamilyVersion
+      Tags:
+        - Key: "Name"
+          Value: !Sub ${EnvironmentName}-rds-param

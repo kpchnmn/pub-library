@@ -1,0 +1,97 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Creater EC2 as Devlopment Server Template"
+Parameters:
+  KeyPairName:
+    MinLength: 1
+    Type: "AWS::EC2::KeyPair::KeyName"
+  ProjectName:
+    Type: String
+
+#Mappings:
+
+Resources:
+# EIP の作成
+  EC2InstanceEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: !Ref ProjectName
+
+# EIP をアタッチ
+  EC2InstanceEIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      AllocationId: !GetAtt EC2InstanceEIP.AllocationId
+      InstanceId: !Ref EC2Instance
+
+
+# EC2用のIAMロールを作成
+  EC2Role:
+      Type: AWS::IAM::Role
+      DeletionPolicy: Delete
+      Properties:
+        RoleName: !Sub ${ProjectName}-role
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - "ec2.amazonaws.com"
+              Action: "sts:AssumeRole"
+        Path: "/"
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AdministratorAccess
+          - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  InstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    DeletionPolicy: "Delete"
+    Properties:
+      Path: "/"
+      Roles:
+        -
+          Ref: "EC2Role"
+      InstanceProfileName: !Sub ${ProjectName}-role
+
+# EC2を作成
+  EC2Instance:
+    DependsOn: EC2Role
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Delete"
+    Properties:
+      IamInstanceProfile: !Sub ${ProjectName}-role
+      ImageId: "ami-04204a8960917fd92" # amzn2-ami-kernel-5.10-hvm-2.0.20220218.3-x86_64-gp2
+      InstanceType: "t3.medium"
+      KeyName:
+        Ref: "KeyPairName"
+      SecurityGroups:
+        -
+          Ref: InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Ref ProjectName
+      UserData:
+        Fn::Base64: |
+            #!/bin/bash
+            yum update -y
+            # Install pre
+            yum install -y git util-linux-user gcc zlib-devel libffi-devel openssl-devel bzip2-devel readline-devel sqlite-devel golang
+            # ec2-user env setting
+            echo 'source ~/.bashrc' >> /home/ec2-user/.bash_profile
+            # Install direnv
+            curl -sfL https://direnv.net/install.sh | bash
+            echo 'eval "$(direnv hook bash)"' >> /home/ec2-user/.bashrc
+            su - ec2-user -c 'direnv --version'
+            # Install anyenv
+            echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> /home/ec2-user/.bashrc
+            su - ec2-user -c 'git clone https://github.com/anyenv/anyenv ~/.anyenv'
+            echo 'eval "$(anyenv init -)"' >> /home/ec2-user/.bashrc
+            su - ec2-user -c 'anyenv install --force-init'
+
+  InstanceSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    DeletionPolicy: "Delete"
+    Properties:
+      GroupDescription: "No Ingress"

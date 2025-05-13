@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Section 16 template at Virginia region
+# ------------------------------------------------------------#
+# Input Parameters
+# ------------------------------------------------------------#
+Parameters:
+  DomainName:
+    Type: String
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+
+Resources:
+# ------------------------------------------------------------#
+#  ACM
+# ------------------------------------------------------------#
+  # Create ACM
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Sub '${DomainName}'
+      DomainValidationOptions:
+        - DomainName: !Sub '${DomainName}'
+          HostedZoneId: !Sub '${HostedZoneId}'
+      ValidationMethod: DNS
+
+Outputs:
+  ACM:
+    Value: !Ref Certificate

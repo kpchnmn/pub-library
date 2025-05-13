@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  LambdaFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "sample"
+      Handler: "index.handler"
+      Code:
+        ZipFile: |
+          exports.handler = async (event) => {
+              // TODO implement
+              const response = {
+                  statusCode: 200,
+                  body: JSON.stringify('Hello from Lambda!'),
+              };
+              return response;
+          };
+      Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LambdaBasicExecutionRole"
+      Runtime: "nodejs16.x"

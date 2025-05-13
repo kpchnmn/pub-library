@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Base EC2InstanceProfileRole"
+Parameters:
+  EC2InstanceProfileRolePrefixName:
+    Type: "String"
+    Default: "base-ec2-ap-northeast-1"
+    Description: "Required. Input IAM role prefix name for EC2InstanceProfileRole. The region name is given at the end of EC2InstanceProfileRolePrefixName."
+    MinLength: 1
+Resources:
+  EC2Role:
+      Type: AWS::IAM::Role
+      DeletionPolicy: Delete
+      Properties: {
+        "RoleName": !Ref EC2InstanceProfileRolePrefixName,
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Path": "/",
+        "ManagedPolicyArns": [
+        # "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+         "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+        ]
+      }
+  InstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    DeletionPolicy: "Delete"
+    Properties:
+      Path: "/"
+      Roles:
+        -
+          Ref: "EC2Role"
+      InstanceProfileName: !Ref EC2InstanceProfileRolePrefixName
